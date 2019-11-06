@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzz.mapper.SysAccessLogMapper">
+    <select id="querySysLogList" parameterType="map" resultType="hashMap">
+        SELECT DATE_FORMAT(t.accessDate,'%Y-%m-%d %H:%i:%s') accessDate,t.requestType,t.accessInterface,t.interfaceParams,t.accessSource,t.accessIp,t.executeTime
+        FROM tbsyslog t where t.accessDate&gt;=#{beginTime} and t.accessDate&lt;=#{endTime} order by t.accessDate DESC
+    </select>
+    <insert id="saveSysLog" parameterType="map">
+        insert into  tbSysLog(logId,accessDate,requestType,accessInterface,interfaceParams,accessSource,accessIp,executeTime)
+         values (#{logId},#{accessDate},#{requestType},#{accessInterface},#{interfaceParams},#{accessSource},#{accessIp},#{executeTime})
+    </insert>
+</mapper>

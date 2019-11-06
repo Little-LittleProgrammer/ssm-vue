@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzz.mapper.UserMapper">
+    <!--因为在sqlMapConfig.xml中配置了别名，所以直接写user就可以-->
+    <select id="queryUserList" parameterType="map" resultType="user">
+        select * from tbUser
+        <where>
+            <if test="userName!=null and userName!=''">
+                userName like CONCAT('%',#{userName},'%')
+            </if>
+            <if test="sex!=null and sex!=''">
+                AND sex=#{sex}
+            </if>
+        </where>
+    </select>
+    <select id="queryUser" parameterType="map" resultType="int">
+        select count(1) from tbUser where userName=#{userName} and password=#{password}
+    </select>
+
+    <update id="upUserPass" parameterType="map" >
+        update tbUser set password=#{password} where userName = #{userName}
+    </update>
+
+    <insert id="addUser" parameterType="map" keyProperty="id">
+        INSERT into tbuser (uId, userName, password, uName, age, sex) values (#{uid},#{userName},#{password},#{uName},#{age},#{sex})
+    </insert>
+
+    <delete id="delUser" parameterType="map">
+        delete from tbuser where userName = #{userName}
+    </delete>
+
+    <update id="upUser" parameterType="map" >
+        update tbUser set password=#{password},uid =#{uid},userName=#{userName},uName=#{uName},age=#{age},sex=#{sex} where userName = #{userName}
+    </update>
+</mapper>

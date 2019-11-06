@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/mvc
+         http://www.springframework.org/schema/mvc/spring-mvc.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--springMVC值扫描controller-->
+    <context:component-scan base-package="com.wzz.controller"/>
+
+    <!--配置日志切面-->
+    <aop:config>
+        <aop:pointcut id="pt" expression="execution(* com.wzz.controller.*.*(..))"/>
+        <!--日志切面-->
+        <aop:aspect id="" ref="sysAccessLogAspect">
+            <!--前置通知-->
+            <aop:before method="doBefore" pointcut-ref="pt"></aop:before>
+            <!--后置通知-->
+            <aop:after-returning method="doAfter" pointcut-ref="pt"></aop:after-returning>
+        </aop:aspect>
+    </aop:config>
+
+    <!--视图解析器
+        这里不需要视图解析器，因为不处理jsp，或者html,咱们是前后端分离，后端只负责返回数据即可-->
+    <!--<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+    <!--<property name="prefix" value="/WEB-INF/pages/"/>-->
+    <!--<property name="suffix" value=".jsp"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;过滤静态资源&ndash;&gt;-->
+    <!--<mvc:resources mapping="/css/**" location="/css/"/>-->
+    <!--<mvc:resources mapping="/images/**" location="/images/"/>-->
+    <!--<mvc:resources mapping="/js/**" location="/js/"/>-->
+
+    <!--springMVC框架流程
+    1、 用户发起请求到前端控制器（DispatcherServlet），前端控制器没有能力处理业务逻辑；
+    2、 通过HandlerMapping查找模型（Controller、Handler）；
+    3、 返回执行链，执行链包含了2部分内容，Handler对象以及拦截器（组）；
+    4、 通过HandlerAdapter执行模型（Handler）
+    5、 适配器调用Handler对象处理业务逻辑；
+    6、 模型处理完业务逻辑，返回ModelAndView对象，view不是真正的视图对象，而是视图名称；
+    7、 将ModelAndView对象返回给前端控制器；
+    8、 前端控制器通过视图名称经过视图解析器查找视图对象；
+    9、 返回视图对象；
+    10、前端控制器渲染视图；
+    11、返回给前端控制器；
+    12、前端控制器将视图（html、json、xml、Excel）返回给用户；-->
+
+
+    <!--开启springMVC注解支持-->
+    <mvc:annotation-driven/>
+</beans>
