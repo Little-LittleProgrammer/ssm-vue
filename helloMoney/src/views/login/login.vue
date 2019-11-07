@@ -60,16 +60,27 @@
           </el-form-item>
         </el-tooltip>
 
+        <el-form-item prop="verificationCode">
+          <span class="svg-container">
+            <i class="el-icon-edit" />
+          </span>
+          <el-input
+            v-model="loginForm.verificationCode"
+            name="verification-code"
+            type="text"
+            placeholder="验证码"
+            @keyup.enter.native="handleLogin"
+          />
+          <span class="code">
+            <verification-code @rendom="value=>rendomStr = value" />
+          </span>
+        </el-form-item>
+
         <el-button
           :loading="loading"
           type="primary"
           style="width:100%;margin-bottom:30px;"
           @click="handleLogin"
-        >登录</el-button>
-         <el-button
-          type="primary"
-          style="width:100%;margin-bottom:30px;"
-          @click="asd"
         >登录</el-button>
       </el-form>
     </div>
@@ -87,11 +98,20 @@
 import {commonAPI} from '@/api/commonAPI'
 import layout from '../layout/Layout'
 import crypto from 'crypto'
+import VerificationCode from '@/components/VerificationCode/index'
 
 export default {
-  components:{layout},
+  components:{layout,VerificationCode},
   data() {
+    const validateCode = (rule, value, callback) => {
+      if (value.toUpperCase() !== this.rendomStr.toUpperCase()) {
+        callback(new Error('验证码有误！'))
+      } else {
+        callback()
+      }
+    }
     return {
+      rendomStr: '',
       watchAds:Object,
       watchAdss:Object,
       flag:false,
@@ -125,7 +145,8 @@ export default {
             message: "请填写密码"
           },
           { type: "string", min: 6, message: "密码至少为6位", trigger: "blur" }
-        ]
+        ],
+        verificationCode: [{ required: true, trigger: 'blur', validator: validateCode }]
       }
     };
   },
@@ -141,9 +162,6 @@ export default {
     }
   },
   methods: {
-    async asd(){
-      window.location.href= 'https://www.baidu.com/'
-    },
     change(){
       this.flag =true;
       let _this=this
