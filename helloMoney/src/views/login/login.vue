@@ -1,6 +1,9 @@
 <template>
   <div class="login-container">
     <div v-if="flag" >
+      <div style="margin-top:3%;margin-left:6%">
+        <span class="title"><h1>图书统一管理系统</h1></span>
+    </div>
       <el-form
         ref="loginForm"
         :model="loginForm"
@@ -382,5 +385,10 @@ $light_gray: #eee;
       display: none;
     }
   }
+
+  .title {
+        font-size: 20px;
+        color: #eeeeee;
+      }
 }
 </style>

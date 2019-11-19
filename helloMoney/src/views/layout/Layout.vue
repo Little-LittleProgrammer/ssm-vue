@@ -1,9 +1,12 @@
 <template>
   <el-container style="height: 100%;" class="abc" :class="{active:isActive}">
     <!-- 头部 -->
-    <el-header style="text-align: right; font-size: 12px">
-      <el-dropdown trigger="click" @command="handleCommand">
-        <span class="el-dropdown-link" >
+    <el-header style="">
+      <span class="el-dropdown-link" style="color: #eeeeee;font-size:36px">
+        图书管理
+      </span>
+      <el-dropdown trigger="click" @command="handleCommand" style="float: right;">
+        <span class="el-dropdown-link" style="color: #eeeeee;font-size: 16px">
           你好，{{uName}}<i class="el-icon-setting el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
@@ -14,8 +17,10 @@
     </el-header>
     <el-container>
       <!-- 左侧栏 -->
-      <el-aside width="200px" >
-        <el-menu>
+      <div class="el-aside">
+        <el-button @click="changeHiddlea" id="a" style="float:right;border:none;height:0px;outline:none;display:none;background-color: rgb(238, 241, 246);" >>></el-button>
+        <el-button @click="changeHiddleb" id="b" style="float:right;border:none;height:0px;outline:none;display:block;background-color: rgb(238, 241, 246);" >{{left}}</el-button><br>
+        <el-menu :collapse="isCollapse" class="el-menu-vertical-demo" unique-opened = true>
           <!--如果菜单(menu)是true 循环侧栏路由列表  -->
           <template
             v-for="item in menuData"
@@ -26,7 +31,7 @@
               :index="item.meta.funcNode"
               :key="item.path"
             >
-              <template slot="title"><i :class="item.meta.icon"></i>{{item.meta.title}}</template>
+              <template slot="title"><i :class="item.meta.icon"></i><span slot="title">{{item.meta.title}}</span></template>
               <!-- 如果菜单有孩子菜单，则循环孩子菜单 -->
               <template
                 v-for="itemC in item.children"
@@ -36,12 +41,12 @@
                   :index="itemC.meta.funcNode"
                   :key="itemC.path"
                   @click="clickMenu(itemC)"
-                ><i :class="itemC.meta.icon"></i>{{itemC.meta.title}}</el-menu-item>
+                ><i :class="itemC.meta.icon"></i><span slot="title">{{itemC.meta.title}}</span></el-menu-item>
               </template>
             </el-submenu>
           </template>
         </el-menu>
-      </el-aside>
+      </div>
       <!-- 内容渲染 -->
       <el-main style="background-color: white;">
         <router-view />
@@ -84,13 +89,27 @@ export default {
       uName:"",
       isActive:true,
       bookName:[],
-      messageList:[]
+      messageList:[],
+      isCollapse: false,
+      left:'<<'
     };
   },
   created(){
     this.getData();
   },
   methods: {
+    changeHiddlea(){
+      console.log(this.isCollapse)
+      this.isCollapse = false
+      document.getElementById('a').style.display = 'none';
+      document.getElementById('b').style.display = 'block';
+    },
+    changeHiddleb(){
+      console.log(this.isCollapse)
+      this.isCollapse =true
+      document.getElementById('b').style.display = 'none';
+      document.getElementById('a').style.display = 'block';
+    },
     handleCommand(command){
       if(command == 'a'){
         this.updataPassword()
@@ -159,8 +178,12 @@ export default {
 </script>
 
 <style>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
 .el-header {
-    background-color: #B3C0D1;
+    background-color: #9ba5b3;
     color: #333;
     line-height: 60px;
   }
@@ -176,6 +199,7 @@ export default {
 .el-menu-item {
   background-color: rgb(238, 241, 246);
 }
+
 
 body {
   margin: 0px;

@@ -20,6 +20,19 @@ export const menu=[
     }
   },
   {
+    path:'/role',
+    redirect:'user/userList',
+    meta:{
+      title:'角色管理',
+      icon:'el-icon-help',
+      menu:true
+    }
+  },
+]
+
+
+export const asyncRoutes = [
+  {
     path:'/user',
     name:'layoutYHGL',
     component:()=>import('@/views/layout/Layout'),
@@ -42,31 +55,19 @@ export const menu=[
         }
       },
       {
-        path:'/user/addUser',
-        name:'UserAdd',
-        component:()=>import('@/views/user/UserAdd'),
+        path:'/book/badGay',
+        name:'returnBook',
+        component:()=>import('@/views/book/badGay'),
         meta:{
-          title:'用户添加',
-          icon:'el-icon-circle-plus-outline',
+          title:'失信用户',
+          icon :'el-icon-user',
           menu:true,
-          funcNode:'1-2'
+          funcNode:'3-5',
+          role:['admin']
         }
-      }
+      },
     ]
   },
-  {
-    path:'/role',
-    redirect:'user/userList',
-    meta:{
-      title:'角色管理',
-      icon:'el-icon-help',
-      menu:true
-    }
-  },
-]
-
-
-export const asyncRoutes = [
   {
     path:'/sys',
     name:'layoutXTGL',
@@ -152,19 +153,7 @@ export const asyncRoutes = [
           funcNode:'3-4',
           role:['admin']
         }
-      },
-      {
-        path:'/book/badGay',
-        name:'returnBook',
-        component:()=>import('@/views/book/badGay'),
-        meta:{
-          title:'失信用户',
-          icon :'el-icon-user',
-          menu:true,
-          funcNode:'3-5',
-          role:['admin']
-        }
-      },
+      }
     ]
   },
   {
