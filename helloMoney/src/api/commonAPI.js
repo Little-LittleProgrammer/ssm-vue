@@ -1,4 +1,6 @@
 import request from '@/utils/request'
+import des from '../utils/des'
+const key = 'mmhll1314520lhxq';
 
 export function commonAPI(api,postData){
   if(postData===''){
@@ -10,7 +12,7 @@ export function commonAPI(api,postData){
     return request({
       url:'/'+api,
       method:'post',
-      data:postData
+      data:des.encryptByDES(JSON.stringify(postData),key)
     })
   }
 }

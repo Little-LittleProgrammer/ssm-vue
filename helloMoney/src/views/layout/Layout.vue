@@ -18,6 +18,7 @@
     <el-container>
       <!-- 左侧栏 -->
       <div class="el-aside">
+        <!-- or v-show -->
         <el-button @click="changeHiddlea" id="a" style="float:right;border:none;height:0px;outline:none;display:none;background-color: rgb(238, 241, 246);" >>></el-button>
         <el-button @click="changeHiddleb" id="b" style="float:right;border:none;height:0px;outline:none;display:block;background-color: rgb(238, 241, 246);" >{{left}}</el-button><br>
         <el-menu :collapse="isCollapse" class="el-menu-vertical-demo" unique-opened = true>
@@ -97,12 +98,50 @@ export default {
   created(){
     this.getData();
   },
+  mounted(){
+    window.addEventListener('mousedown',this.onMouseDown,false)
+    this.onMouseDown()
+  },
   methods: {
     changeHiddlea(){
       console.log(this.isCollapse)
       this.isCollapse = false
       document.getElementById('a').style.display = 'none';
       document.getElementById('b').style.display = 'block';
+    },
+    onMouseDown(event){
+      if (event === undefined) {
+        return
+      } else {
+        if (event.button == 0) {
+          clearTimeout(this.watchClick)
+          clearTimeout(this.watchClicks)
+          const _this = this
+          this.watchClicks = setTimeout(() => {
+            sessionStorage.clear()
+            _this.exitLogin()
+          }, 1000 * 60 * 30);
+          console.log('鼠标左键!')
+        } else if (event.button == 2) {
+          clearTimeout(this.watchClick)
+          clearTimeout(this.watchClicks)
+          const _this = this
+          this.watchClicks = setTimeout(() => {
+            sessionStorage.clear()
+            _this.exitLogin()
+          }, 1000 * 60 * 30);
+          console.log('鼠标右键!');
+        } else if (event.button == 1) {
+          clearTimeout(this.watchClick)
+          clearTimeout(this.watchClicks)
+          const _this = this
+          this.watchClicks = setTimeout(() => {
+            sessionStorage.clear()
+            _this.exitLogin()
+          }, 1000 * 60 * 30);
+          console.log('鼠标滚轮!');
+        }
+      }
     },
     changeHiddleb(){
       console.log(this.isCollapse)

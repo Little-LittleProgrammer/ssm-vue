@@ -95,6 +95,7 @@ export default {
     },
     getData() {
       this.loading = true;
+      this.tableDataFinally = []
       commonAPI("querySub", { bookType: 1 ,uId:this.formQuery.uId}).then(res => {
         this.tableDataDemo = res.data.data.rows;
         this.tableData = res.data.data.rows;

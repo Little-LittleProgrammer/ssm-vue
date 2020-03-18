@@ -3,7 +3,7 @@
     :visible.sync="isShow"
     :title="title"
     center
-    @close ="closeDialog"
+    @close = "closeDialog"
     @open = "openDialog"
   >
     <el-card>
@@ -15,7 +15,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item prop="password" label="密码">
+            <el-form-item prop="password" label="密码:">
               <el-input type="password" v-model="addData.password"  placeholder="请输入密码"></el-input>
             </el-form-item>
           </el-col>
@@ -27,7 +27,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item prop="age" label="年龄">
+            <el-form-item prop="age" label="年龄:">
               <el-input v-model="addData.age"  placeholder="请输入密码"></el-input>
             </el-form-item>
           </el-col>
@@ -39,7 +39,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item prop="sex" label="性别">
+            <el-form-item prop="sex" label="性别:">
               <el-select v-model="addData.sex" >
                 <el-option v-for="item in sexSelect" :key="item.key"
                   :label="item.value"

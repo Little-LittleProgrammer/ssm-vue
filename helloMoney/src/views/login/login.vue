@@ -195,7 +195,7 @@ export default {
       }
     },
     showPwd(e) {
-      console.log(e)
+      console.log(e.target.style)
       if (this.passwordType === "password") {
         this.passwordType = "";
       } else {
@@ -222,6 +222,7 @@ export default {
                 if (data.info.code === "0" && data.data.status === "OK") {
                   this.$store.dispatch("changeUserName",this.loginForm.userName)
                   this.$store.dispatch("saveToken",data.data.token)
+                  this.loading = false;
                   setTimeout(() => {
                     this.$router.push({
                       name: "layoutYHGL"
