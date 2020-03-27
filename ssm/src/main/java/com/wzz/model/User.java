@@ -10,6 +10,13 @@ import java.io.Serializable;
  **/
 public class User implements Serializable {
     private int id;
+    private String uid;    //uid
+    private String userName;   //用户名
+    private String password;    //密码
+    private String uName;      //姓名
+    private Integer age;    //年龄
+    private Integer sex;    //性别
+    private Integer score;  //征信分
 
     public int getId() {
         return id;
@@ -19,12 +26,13 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    private String uid;    //uid
-    private String userName;   //用户名
-    private String password;    //密码
-    private String uName;      //姓名
-    private Integer age;    //年龄
-    private Integer sex;    //性别
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 
     public String getUid() {
         return uid;
@@ -84,6 +92,8 @@ public class User implements Serializable {
                 ", uName='" + uName + '\'' +
                 ", age=" + age +
                 ", sex=" + sex +
+                ", score=" + score +
                 '}';
     }
+
 }

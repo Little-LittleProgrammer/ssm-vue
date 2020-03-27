@@ -13,6 +13,8 @@ public interface IBookService {
 
     void addBook(Map<String,Object> map);
 
+    void batchAddBook(Map<String,Object> map);
+
     void editBook(Map<String,Object> map);
 
     void returnSubBook(Map<String,Object> map);

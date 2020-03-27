@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.wzz.mapper.UserMapper;
 import com.wzz.model.User;
+import com.wzz.model.loginStatus;
 import com.wzz.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,29 @@ public class UserServiceImpl implements IUserService {
     @Override
     public int queryUser(Map<String, Object> map) {
         return userMapper.queryUser(map);
+    }
+
+    @Override
+    public int queryLogin(Map<String, Object> map) {
+        return userMapper.queryLogin(map);
+    }
+
+    @Override
+    public Map<String, Object> queryLoginStatus(Map<String, Object> map) {
+        List<loginStatus> resultList = userMapper.queryLoginStatus(map);
+        Map<String,Object> resultMap=new HashMap<>();
+        resultMap.put("data",resultList);
+        return resultMap;
+    }
+
+    @Override
+    public void addLoginStatus(Map<String, Object> map) {
+        userMapper.addLoginStatus(map);
+    }
+
+    @Override
+    public void loginByQR() {
+
     }
 
     @Override

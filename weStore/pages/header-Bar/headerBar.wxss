@@ -1,0 +1,11 @@
+/* pages/header-Bar/headerBar.wxss */
+.index_header{
+  background:#fff
+}
+.index_header_logo{
+  width: 3rem;
+  float: left;
+  /* height: .5rem; */
+  display: inline-block;
+  margin: 1rem 0 0 1rem;
+}

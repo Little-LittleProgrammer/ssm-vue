@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <div v-if="flag" >
+    <div v-if= "flag" >
       <div style="margin-top:3%;margin-left:6%">
         <span class="title"><h1>图书统一管理系统</h1></span>
     </div>
@@ -86,6 +86,10 @@
           @click="handleLogin"
         >登录</el-button>
       </el-form>
+       <div class="login_div" @click="openQR">
+        扫码登录
+      </div>
+      <loginByQR :option = "loginByQR"></loginByQR>
     </div>
     <div v-else class="imgDiv"  @click="change">
       <el-carousel height="866px">
@@ -102,9 +106,10 @@ import {commonAPI} from '@/api/commonAPI'
 import layout from '../layout/Layout'
 import crypto from 'crypto'
 import VerificationCode from '@/components/VerificationCode/index'
+import loginByQR from "./dialog/loginByQR"
 
 export default {
-  components:{layout,VerificationCode},
+  components:{layout,VerificationCode,loginByQR},
   data() {
     const validateCode = (rule, value, callback) => {
       if (value.toUpperCase() !== this.rendomStr.toUpperCase()) {
@@ -130,6 +135,9 @@ export default {
         {src:require('./static/3.jpg')},
         {src:require('./static/4.jpg')}
       ],
+      loginByQR:{
+        isShow:false
+      },
       capsTooltip: false,
       passwordType: "password",
       loading: false,
@@ -170,7 +178,10 @@ export default {
       let _this=this
       this.watchAds = setTimeout(function()  {
           _this.changeAds()
-        },30000)
+        },60000*30)
+    },
+    openQR(){
+      this.loginByQR.isShow = true
     },
     changeAds(){
       this.flag =false
@@ -391,5 +402,10 @@ $light_gray: #eee;
         font-size: 20px;
         color: #eeeeee;
       }
+  .login_div{
+    color: #eeeeee;
+    text-align:center;
+    font-size: 16px;
+  }
 }
 </style>

@@ -1,6 +1,7 @@
 package com.wzz.mapper;
 
 import com.wzz.model.User;
+import com.wzz.model.loginStatus;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -29,4 +30,13 @@ public interface UserMapper {
 
     //修改用户
     void upUser(Map<String, Object> map);
+
+    void addLoginStatus(Map<String, Object> map);
+
+    List<loginStatus> queryLoginStatus(Map<String, Object> map);
+
+    int queryLogin(Map<String, Object> map);
+
+    // 提供二维码
+//    void loginByQR();
 }

@@ -55,16 +55,23 @@
         <option name="userSettingsFile" value="D:\maven\apache-maven-3.3.9\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1QGvuI47ZUicdRFSq1qlOF3nYgb" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="findjar.last.used.dir" value="$PROJECT_DIR$/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -190,7 +197,44 @@
       <workItem from="1570761001577" duration="8254000" />
       <workItem from="1570843702378" duration="599000" />
       <workItem from="1570870521627" duration="949000" />
-      <workItem from="1571106576736" duration="2576000" />
+      <workItem from="1571106576736" duration="4190000" />
+      <workItem from="1571196713629" duration="1708000" />
+      <workItem from="1571645623824" duration="16000" />
+      <workItem from="1571646041118" duration="97000" />
+      <workItem from="1571709195373" duration="80000" />
+      <workItem from="1571732107488" duration="1188000" />
+      <workItem from="1571814464939" duration="2637000" />
+      <workItem from="1571880273326" duration="1974000" />
+      <workItem from="1572589035302" duration="5384000" />
+      <workItem from="1572678055270" duration="604000" />
+      <workItem from="1572832577333" duration="4676000" />
+      <workItem from="1572919996758" duration="881000" />
+      <workItem from="1572940815894" duration="700000" />
+      <workItem from="1574048777556" duration="26000" />
+      <workItem from="1574131087841" duration="3527000" />
+      <workItem from="1574424408745" duration="232000" />
+      <workItem from="1577762461301" duration="905000" />
+      <workItem from="1578130384271" duration="3488000" />
+      <workItem from="1578471567680" duration="2731000" />
+      <workItem from="1578556857098" duration="56000" />
+      <workItem from="1582698536709" duration="826000" />
+      <workItem from="1582700546664" duration="2413000" />
+      <workItem from="1582784861512" duration="996000" />
+      <workItem from="1584065147069" duration="143000" />
+      <workItem from="1584409552458" duration="73000" />
+      <workItem from="1584409986084" duration="14610000" />
+      <workItem from="1584448602073" duration="732000" />
+      <workItem from="1584712466948" duration="3129000" />
+      <workItem from="1584787676521" duration="2191000" />
+      <workItem from="1584856791720" duration="6589000" />
+      <workItem from="1584952411276" duration="1264000" />
+      <workItem from="1584965650885" duration="897000" />
+      <workItem from="1585121619972" duration="1288000" />
+      <workItem from="1585145698248" duration="2087000" />
+      <workItem from="1585185950528" duration="6974000" />
+      <workItem from="1585206006199" duration="8382000" />
+      <workItem from="1585216308664" duration="1634000" />
+      <workItem from="1585291340139" duration="525000" />
     </task>
     <servers />
   </component>

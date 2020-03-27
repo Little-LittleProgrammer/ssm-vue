@@ -27,6 +27,10 @@
         INSERT into tbuser (uId, userName, password, uName, age, sex) values (#{uid},#{userName},#{password},#{uName},#{age},#{sex})
     </insert>
 
+    <insert id="addLoginStatus" parameterType="map" keyProperty="id">
+        INSERT into loginStatus (userName, token) values (#{userName},#{token})
+    </insert>
+
     <delete id="delUser" parameterType="map">
         delete from tbuser where userName = #{userName}
     </delete>
@@ -34,4 +38,12 @@
     <update id="upUser" parameterType="map" >
         update tbUser set password=#{password},uid =#{uid},userName=#{userName},uName=#{uName},age=#{age},sex=#{sex} where userName = #{userName}
     </update>
+
+    <select id="queryLoginStatus" parameterType="map" resultType="loginStatus">
+        select * from loginStatus where token=#{token}
+    </select>
+
+    <select id="queryLogin" parameterType="map" resultType="int">
+        select count(1) from loginStatus where token=#{token}
+    </select>
 </mapper>

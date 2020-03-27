@@ -91,7 +91,19 @@ export const asyncRoutes = [
           funcNode:'2-1',
           role: ['admin']
         }
-      }
+      },
+      {
+        path:'/Activiti/createBPMN',
+        name:'createBPMN',
+        component:()=>import('@/views/Activiti/createBPMN'),
+        meta:{
+          title:'绘制BPMN',
+          icon:'el-icon-notebook-1',
+          menu:true,
+          funcNode:'2-2',
+          role: ['admin']
+        }
+      },
     ]
   },
   {

@@ -17,7 +17,8 @@
       </el-form>
     </el-card>
     <el-card class="elMain">
-      <el-button type="primary" size="mini" style="float:left" @click="bookManage()" ><i class="el-icon-circle-plus-outline"></i>&nbsp;新增</el-button><br><br>
+      <el-button type="primary" size="mini" style="float:left" @click="bookManage()" ><i class="el-icon-circle-plus-outline"></i>&nbsp;新增</el-button>
+      <el-button type="primary" size="mini" style="float:left" @click="addBook()" ><i class="el-icon-circle-plus-outline"></i>&nbsp;批量导入</el-button><br><br>
       <el-table v-loading="loading" :data="tableData" stripe border size="mini">
         <el-table-column align="center" label="编号" prop="bId"></el-table-column>
         <el-table-column align="center" label="书名" prop="bookName"></el-table-column>
@@ -39,6 +40,7 @@
 
     <!-- 组件 -->
     <bookEditor :option="editorBook" @refreshTable="getData"></bookEditor>
+    <uploadToSql :option="excel"></uploadToSql>
   </div>
 </template>
 
@@ -46,9 +48,10 @@
 <script>
 import {commonAPI} from '@/api/commonAPI'
 import bookEditor from "./dialog/bookEditor"
+import uploadToSql from "./dialog/uploadToSql"
 
 export default {
-  components:{bookEditor},
+  components:{bookEditor,uploadToSql},
   data(){
     return {
       formQuery:{
@@ -56,6 +59,9 @@ export default {
         author:'',
         pageNum:1,
         pageSize:10
+      },
+      excel:{
+        isShow:false
       },
       tableData:[],
       pageSizes:[5,10,20,40],
@@ -110,6 +116,9 @@ export default {
         this.editorBook.tableData ={}
         this.editorBook.isDisabled = false
       }
+    },
+    addBook(){
+      this.excel.isShow = true
     },
     resetting() {
       this.formQuery.bookName = '';

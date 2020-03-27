@@ -24,4 +24,15 @@ public interface IUserService {
 
     //修改用户
     void upUser(Map<String, Object> map);
+
+    //提供二维码
+    void loginByQR();
+
+    // 手机端扫码新增数据
+    void addLoginStatus(Map<String, Object> map);
+
+    // 网页端查找数据
+    Map<String,Object> queryLoginStatus(Map<String, Object> map);
+
+    int queryLogin(Map<String, Object> map);
 }

@@ -69,7 +69,7 @@
                 AND returnDateTime like CONCAT('%',#{returnDateTime},'%')
             </if>
             <if test="bookType!=null">
-                AND bookType=#{bookType}
+                    AND bookType=#{bookType}
             </if>
             <if test="returntype!=null">
                 AND returntype=#{returntype}

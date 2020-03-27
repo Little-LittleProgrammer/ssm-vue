@@ -1,0 +1,9 @@
+/* pages/items-upLoad/upload.wxss */
+.upload_header{
+  margin: 1rem 0 0 0
+}
+.upload_text{
+  font-size: 14px;
+  width: 90px;
+  margin: 8px
+}

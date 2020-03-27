@@ -1,0 +1,99 @@
+/**index.wxss**/
+page{
+  height: 100%;
+}
+.index_header{
+  background:#fff
+}
+.index_header_logo{
+  width: 3rem;
+  float: left;
+  /* height: .5rem; */
+  display: inline-block;
+  margin: 1rem 0 0 1rem;
+}
+.index_slogan{
+  height: 2rem;
+  vertical-align: middle;
+  /* border: 2rpx black solid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: .3rem 0 0 1rem; */
+}
+.index_image{
+  /* padding: 1rem 0 0 0; */
+  margin: .3rem 0 0 1rem;
+  width: 1.6rem;
+  height: 1.6rem
+}
+.index_text{
+  width: 3rem;
+  margin: 0 2rem 0 .3rem;
+  font-size: .8rem
+}
+.flex-item{
+  margin: .3rem 0 0 0;
+ width: 100%;
+ flex-direction:row;
+ display:flew;
+ background-color:#fff;
+ /* float: left */
+}
+
+.index_slogn_logo{
+  /* width: 7.6rem; */
+  float: left;
+  /* height: .5rem; */
+  /* display: inline-block; */
+  vertical-align: middle;
+  margin: .3rem 0 0 1rem;
+}
+.index_slogan_span{
+  /* width: 7.6rem; */
+  /* height: .5rem; */
+  /* display: inline-block; */
+  line-height: 10rem;
+  /* padding: -.6rem 0 .6rem 0; */
+  font-size: .6rem
+}
+.index_header_van-search{
+  width: 3rem;
+}
+.u-wrp-bnr{
+  height: 12rem
+}
+.index_title1{
+  background-color: #fff;
+  margin: .3rem 0 0 0;
+  padding-left: 1rem;
+  font-size: 1.3rem;
+  height:2.3rem;
+  line-height: 2.3rem
+}
+
+
+.bottom_slogn{
+  height: 5rem;
+  width: 100%;
+  font-size: .8rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #aaa;
+  bottom: 0;
+  /* position: fixed; */
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 12rem;
+  height: 20rem;
+  background-color: #fff;
+}

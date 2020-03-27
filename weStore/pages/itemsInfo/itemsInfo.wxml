@@ -1,0 +1,21 @@
+<!--pages/itemsInfo/itemsInfo.wxml-->
+<view>
+  <van-sticky>
+    <header-Bar/>
+  </van-sticky>
+</view>
+
+<view wx:for="{{goodsItems}}" wx:key="index">
+  <van-card
+    num="999"
+    tag="{{item.tag}}"
+    price="{{item.price}}"
+    desc="{{item.desc}}"
+    title="{{item.title}} "
+    thumb="{{item.url}}"
+  >
+    <view slot="footer">
+      <van-button size="mini">详细</van-button>
+    </view>
+  </van-card>
+</view>

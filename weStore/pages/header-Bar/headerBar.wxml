@@ -1,0 +1,21 @@
+<!--pages/header-Bar/headerBar.wxml-->
+ <van-sticky>
+  <view class="index_header">
+    <van-row style="background:#fff">
+      <van-col class="index_header_logo">商城</van-col>
+      <van-col >
+        <van-search
+          class="index_header_van-search"
+          value="{{ value }}"
+          label="产品"
+          placeholder="请输入搜索关键词"
+          use-action-slot
+          bind:change="onChange"
+          bind:search="onSearch"
+        >
+          <view slot="action" bind:tap="onClick">搜索</view>
+        </van-search>
+      </van-col>
+    </van-row>
+  </view>
+</van-sticky>

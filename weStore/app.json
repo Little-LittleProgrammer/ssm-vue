@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/selfInfo/selfInfo",
+    "pages/itemsInfo/itemsInfo",
+    "pages/items-upLoad/upload"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "footer-Bar": "/pages/footer-Bar/footer-Bar",
+    "header-Bar": "/pages/header-Bar/headerBar",
+    "van-button": "@vant/weapp/button",
+    "van-tabbar": "@vant/weapp/tabbar",
+    "van-tabbar-item": "@vant/weapp/tabbar-item",
+    "van-row": "@vant/weapp/row/",
+    "van-col": "@vant/weapp/col/",
+    "van-search": "@vant/weapp/search",
+    "van-sticky": "@vant/weapp/sticky",
+    "van-notice-bar": "@vant/weapp/notice-bar",
+    "van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs",
+    "van-grid": "@vant/weapp/grid",
+    "van-grid-item": "@vant/weapp/grid-item",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-overlay": "@vant/weapp/overlay",
+    "van-card": "@vant/weapp/card",
+    "van-field": "@vant/weapp/field",
+    "van-uploader": "@vant/weapp/uploader",
+    "van-popup": "@vant/weapp/popup",
+    "van-icon": "@vant/weapp/icon"
+  }
+}

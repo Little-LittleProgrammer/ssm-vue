@@ -55,6 +55,11 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
+    public void batchAddBook(Map<String, Object> map) {
+        bookMapper.addBook(map);
+    }
+
+    @Override
     public void editBook(Map<String, Object> map) {
         bookMapper.editBook(map);
     }

@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view style=" background-color:#eee;height:100%">
+  <van-sticky>
+    <view class="index_header">
+    <header-Bar/>
+      <van-notice-bar
+        mode="closeable"
+        text="三门天泰汽车配件有限公司提醒您：疫情期间，也为您提供最优质的服务"
+      />
+      <van-tabs swipeable>
+        <van-tab wx:for="{{tabList}}" wx:key="index" title="{{item}}">
+        </van-tab>
+      </van-tabs>
+    </view>
+  </van-sticky>
+<swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+  <block wx:for="{{swipeList}}" wx:key="index">
+    <swiper-item>
+      <image src='{{item.url}}' class='u-img-slide' mode='aspectFill'></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="flex-item">
+  <image src="/static/icon/1.png" class="index_image"></image>
+  <text class="index_text">易于心安</text>
+  <image src="/static/icon/2.png" class="index_image"></image>
+  <text class="index_text">品质保证</text>
+  <image src="/static/icon/3.png" class="index_image"></image>
+  <text class="index_text">价格亲民</text>
+</view>
+
+<view class="index_title1">热销产品</view>
+<van-grid border="false" column-num="3">
+  <van-grid-item text="文字" wx:for="{{ 9 }}" wx:key = "index"/>
+</van-grid>
+
+<view class="bottom_slogn">
+  您的开心就是我们最大的喜悦，互利共赢才是时代的潮流
+  
+</view>
+
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+  <view class="wrapper">
+    <image class="block" src="/static/timg.jfif"></image>
+  </view>
+</van-overlay>
+</view>
+
+
+ <footer-Bar/>

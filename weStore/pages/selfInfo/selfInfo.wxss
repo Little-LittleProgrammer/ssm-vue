@@ -1,0 +1,46 @@
+/* pages/selfInfo/selfInfo.wxss */
+.background-image{
+  /* background-image: url(''); */
+  width: 100%;
+  height: 20%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+.userinfo {
+  display: block;
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 1.83rem 0 0 1rem;
+  border-radius: 50%;
+  float: left
+}
+
+.userinfo-nickname {
+  color: #fff;
+  width: 10rem;
+  font-family: "楷体","楷体_GB2312";
+  font-size: 1.6rem;
+  padding: 2.5rem 0 0 5.6rem;
+  margin: 0 0 0 1rem;
+}
+.userinfo-level{
+  color: #fff;
+  font-family: "楷体","楷体_GB2312";
+  width: 13rem;
+  font-size: 1rem;
+  padding: 0 0 0 1.2rem;
+  margin: 0 0 0 1.3rem;
+  float: left
+}
+.selfInfo_cell{
+  margin: 3rem 0 0 0;
+} 
+.selfInfo_button{
+  margin: 7rem 0 0 0;
+}

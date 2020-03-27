@@ -1,0 +1,7 @@
+<!--pages/footer-Bar/footer-Bar.wxml-->
+<van-tabbar bind:change="onChange">
+  <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+  <van-tabbar-item icon="search" dot>全部产品</van-tabbar-item>
+  <van-tabbar-item icon="friends-o" info="5">产品定制</van-tabbar-item>
+  <van-tabbar-item icon="manager-o">个人</van-tabbar-item>
+</van-tabbar>

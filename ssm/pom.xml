@@ -27,6 +27,7 @@
 
   <dependencies>
     <!--Spring提供的对AspectJ框架的整合-->
+    <!--AspectJ是一个面向切面的框架，它扩展了Java语言。AspectJ定义了AOP语法，它有一个专门的编译器用来生成遵守Java字节编码规范的Class文件。-->
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
@@ -76,7 +77,21 @@
       <artifactId>spring-tx</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
+    <!-- 国密4依赖本地   -->
+    <dependency>
+      <groupId>bcprov-jdk15on-1.62</groupId>
+      <artifactId>bcprov-jdk15on-1.62</artifactId>
+      <version>1.62</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/bcprov-jdk15on-1.62.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec-1.12</groupId>
+      <artifactId>commons-codec-1.12</artifactId>
+      <version>1.12</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/commons-codec-1.12.jar</systemPath>
+    </dependency>
     <!--包含Web应用开发时，用到Spring框架时所需的核心类，
       包括自动载入WebApplicationContext特性的类、Struts与JSF集成类、文件上传的支持类、Filter类和大量工具辅助类-->
     <dependency>
@@ -159,6 +174,8 @@
       <version>2.9.0</version>
     </dependency>
 
+
+
     <!--阿里巴巴的json转化包-->
     <!--fastjson-->
     <dependency>
@@ -166,7 +183,6 @@
       <artifactId>fastjson</artifactId>
       <version>1.1.37</version>
     </dependency>
-
 
     <!--浏览器工具类-->
     <dependency>
@@ -224,6 +240,22 @@
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <configuration>
+            <warName>${project.artifactId}</warName>
+            <webResources>
+              <resource>
+                <directory>lib/</directory>
+                <targetPath>WEB-INF/lib</targetPath>
+                <includes>
+                  <include>**/*.jar</include>
+                </includes>
+              </resource>
+            </webResources>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>

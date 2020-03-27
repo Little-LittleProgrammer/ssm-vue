@@ -1,0 +1,12 @@
+<!--pages/confirmLogin/index.wxml-->
+<view class="loginView">
+  <cover-image src='/static/1.png' class="login_img"></cover-image>
+  <text class="login_text">赞同管理端登录确认</text>
+  <view class="login_status">
+    <view>
+      <van-button bind:click='loginByQR' class="login_button" type="primary" size="small">登录</van-button>
+    </view>
+    <text class="login_text" bindtap="cancelLogin">取消登录</text>
+  </view>
+  
+</view>

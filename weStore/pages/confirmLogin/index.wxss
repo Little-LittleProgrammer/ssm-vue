@@ -1,0 +1,20 @@
+/* pages/confirmLogin/index.wxss */
+.loginView{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login_img{
+  margin: 3rem 0 0 0;
+  width: 10rem
+}
+.login_text{
+  margin: 1rem 0 0 0;
+}
+.login_status{
+  position: fixed;  
+  bottom: 6rem;
+}
+.login_button{
+  width:100px
+}

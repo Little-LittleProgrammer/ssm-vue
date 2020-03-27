@@ -17,6 +17,8 @@ public class ResponseBody<T> implements Serializable {
     private int status=200;
     //接口返回的数据
     private T data;
+    //消息内容
+    private InfoMsg info;
 
     public String getDate() {
         return date;
@@ -49,8 +51,5 @@ public class ResponseBody<T> implements Serializable {
     public void setInfo(InfoMsg info) {
         this.info = info;
     }
-
-    //消息内容
-    private InfoMsg info;
 
 }

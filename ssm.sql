@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80016
 File Encoding         : 65001
 
-Date: 2019-10-15 15:13:15
+Date: 2020-03-27 14:53:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,18 @@ CREATE TABLE `bookmanage` (
   `inventory` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   PRIMARY KEY (`bId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Table structure for loginstatus
+-- ----------------------------
+DROP TABLE IF EXISTS `loginstatus`;
+CREATE TABLE `loginstatus` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for tbsyslog
@@ -43,7 +54,7 @@ CREATE TABLE `tbsyslog` (
   `accessIp` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `executeTime` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5407 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6422 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Table structure for tbuser
@@ -57,6 +68,7 @@ CREATE TABLE `tbuser` (
   `uName` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `sex` int(11) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
@@ -77,7 +89,7 @@ CREATE TABLE `t_user_sub` (
   KEY `userId` (`uId`),
   CONSTRAINT `bookId` FOREIGN KEY (`bId`) REFERENCES `bookmanage` (`bId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `userId` FOREIGN KEY (`uId`) REFERENCES `tbuser` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
-INSERT INTO `tbuser` (`id`, `uId`, `userName`, `password`, `uName`, `age`, `sex`) VALUES ('1', 'wal', 'wal', 'e10adc3949ba59abbe56e057f20f883e', '男神', '20', '0');
+INSERT INTO `ssm`.`tbuser` (`id`, `uId`, `userName`, `password`, `uName`, `age`, `sex`, `score`) VALUES ('19', '1', 'wal', 'e10adc3949ba59abbe56e057f20f883e', '男神', '22', '0', '50');
 

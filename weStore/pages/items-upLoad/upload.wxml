@@ -1,0 +1,49 @@
+<!--pages/items-upLoad/upload.wxml-->
+<view class="upload_header">
+  <van-cell-group>
+    <van-field
+      value="{{ username }}"
+      required
+      label="姓名"
+      icon="question-o"
+      placeholder="请输入姓名"
+      bind:click-icon="onClickIcon"
+    />
+    <van-field
+      value="{{ tel }}"
+      type="tel"
+      label="手机号"
+      placeholder="请输入手机号"
+      required
+      border="{{ false }}"
+    />
+    <van-field
+      value="{{ company }}"
+      type="company"
+      label="公司名称"
+      placeholder="请输入公司名称"
+      required
+      border="{{ false }}"
+    />
+    <van-field
+      value="{{ message }}"
+      label="附件"
+      type="textarea"
+      placeholder="请输入参数"
+      autosize
+      border="{{ false }}"
+    />
+  </van-cell-group>
+  <view class="upload_text"><text style="color:red">*</text> 上传图纸</view>
+  <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead"/>
+
+  <van-popup
+    show="{{ popupShow }}"
+    round
+    position="bottom"
+    custom-style="height: 10%"
+    bind:close="onClose"
+  >
+        <text style="margin-left: 20px">请认真填写数据，我们会派专门的技术人员和您沟通，谢谢您的配合，我们将为您提供最优秀的服务</text> 
+  </van-popup>
+</view>
